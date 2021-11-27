@@ -7,6 +7,6 @@ To create the backsplice target sequence with the help of script backsplice.sh. 
 `sh backsplice.sh`
 
 # Detection of circRNA through DRS
-Run the script circ_nano.sh to detect the circRNA in Nanopore data. Convert the nanopore data from fastq to fasta file. The blat take query fasta file so we have to convert it into fasta format.  
+Run the script circ_nano.sh to detect the circRNA in Nanopore data. Convert the nanopore data from fastq to fasta file. The blat take query fasta file so we have to convert it into fasta format. The pblat also available in this repository, you have to untar first to use the pblat.
 
 `sh circ_nano.sh`
