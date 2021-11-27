@@ -6,7 +6,7 @@ target= path_of_target_fasta_sequence
 echo "query: "$query
 echo "target: "$target
 ##################use of pblat to align the query on the target sequence #################################
-pblat -threads=70 -minScore=60 -minIdentity=80 $target $query.fasta $query.psl
+pblat -threads=70 -minScore=60 -minIdentity=80 $target $query.fa $query.psl
 
 ########### use awk command to get only those sequence which span the backplice junction of 20bp upstream and 20bp downstream #############################
 awk '$16<=30 && $17>=70' $query.psl >$query.overlap.psl
