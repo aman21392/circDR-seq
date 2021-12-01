@@ -1,12 +1,12 @@
 # Version 1.0
 # pblat - BLAT with parallel supports v. 36x2
 #!/bin/bash
-query= file_name_of_query
-target= path_of_target_fasta_sequence
+query= $2
+target= $1
 echo "query: "$query
 echo "target: "$target
 ##################use of pblat to align the query on the target sequence #################################
-pblat -threads=70 -minScore=60 -minIdentity=80 $target $query.fa $query.psl
+pblat -threads=70 -minScore=60 -minIdentity=80 $target $query $query.psl
 
 ########### use awk command to get only those sequence which span the backplice junction of 20bp upstream and 20bp downstream #############################
 awk '$16<=30 && $17>=70' $query.psl >$query.overlap.psl
