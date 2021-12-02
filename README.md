@@ -27,3 +27,6 @@ $1=output of nano_circ.sh script (i.e. $query.overlap.mismatch.gap.psl)
 $2= full backsplice fasta sequence (comes from the backsplice.sh script)
 
 $3= Query fasta read
+
+# Test data
+In this folder there is query file i.e. test_read.fa file which is the simulated file which get from running the NanoSim pipeline. The another file i.e. the circbase_spliced_seq_backsplice_100bp.fa which is the target test file which used in pblat. 
