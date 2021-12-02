@@ -4,13 +4,14 @@ circ_nano is a pipeline to detect circRNA from naopore Direct RNA sequencing. It
 # Create backsplice target library
 The linear target sequence is just required to create the backsplice target sequence with the help of script backsplice.sh. 
 
-`sh backsplice.sh`
+`sh backsplice.sh $1`
 
 # Detection of circRNA through DRS
 Run the script nano_circ.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat first untar it.
 
 `sh nano_circ.sh $1 $2`
 
-$1= target fasta library which comes from backsplice.sh command
+$1= target backsplice fasta library of 100bp (which comes from backsplice.sh command).
 
-$2= query fasta file
+$2= query fasta file.
+
