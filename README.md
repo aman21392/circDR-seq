@@ -30,3 +30,14 @@ $3= Query fasta read
 
 # Test data
 In this folder there is query file i.e. test_read.fa file which is the simulated file which get from running the NanoSim pipeline. The another file i.e. the circbase_spliced_seq_backsplice_100bp.fa which is the target test file which used in pblat. 
+
+# Generate the simulated read
+  You can find complete pipeline for nanosim on there github page. https://github.com/bcgsc/NanoSim . For generation of circRNA simulated reads first we have to convert the target linear fasta file into backsplice fasta file and then used genome mode in the NanoSim for genration of simulated reads. In the `-i` option we have to give the nanopore fasta file. 
+
+So 1st step is Characterization stage in genome mode:
+
+NanoSim/src/read_analysis.py genome -i Input read for training -rg full backsplice fasta sequence -o ./backsplice
+
+So 2nd step is Simulation stage in genome mode:
+
+NanoSim/src/simulator.py genome -rg full backsplice fasta sequence -c ./backsplice -n -o ./backsplice_simulate
