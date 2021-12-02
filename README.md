@@ -15,5 +15,15 @@ Run the script nano_circ.sh to detect the circRNA in Nanopore data. First, conve
 
 $1= target backsplice fasta library of 100bp (which comes from backsplice.sh command).
 
-$2= query fasta file.
+$2= query fasta read.
 
+# calculation of Precision and Recall
+Run the script precision_recall.sh to know the precision and recall of the pipeline we did for circBase circRNA. So its better to check in circBase.
+
+`sh precision_recall.sh $1 $2 $3`
+
+$1=output of nano_circ.sh script (i.e. $query.overlap.mismatch.gap.psl)
+
+$2= full backsplice fasta sequence (comes from the backsplice.sh script)
+
+$3= Query fasta read
