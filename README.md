@@ -38,8 +38,8 @@ In this folder there is query file i.e. test_read.fa file which is the simulated
 
 So 1st step is Characterization stage in genome mode:
 
-NanoSim/src/read_analysis.py genome -i Input read for training -rg full backsplice fasta sequence -o ./backsplice
+NanoSim/src/read_analysis.py genome -i Input read for training -rg circBAse_3000sequence.fa.backsplice.fa -o ./backsplice
 
 So 2nd step is Simulation stage in genome mode:
 
-NanoSim/src/simulator.py genome -rg full backsplice fasta sequence -c ./backsplice -n -o ./backsplice_simulate
+NanoSim/src/simulator.py genome -rg circBAse_3000sequence.fa.backsplice.fa -c ./backsplice -n -o ./backsplice_simulate
