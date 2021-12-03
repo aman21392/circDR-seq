@@ -45,4 +45,4 @@ bedtools intersect -b $query.final.txt -a $target.halflength.coord.txt -f 1 -c -
 gawk 'NR==FNR{a+=1;next} {b+=1} END{printf "%.2f\n", a/b}' circRNA.list.txt intersect.txt >recall_ratio.txt
 
 rm data.csv final.csv TP.txt FP.txt total_count.txt precision.csv
-rm intersect.txt $query.final.txt $query.pre.txt $query.txt $target.halflength.coord.txt $target.halflength20minus.txt $target.halflength20add.txt  $target.halflength.txt circRNA.list.txt
+rm intersect.txt $query.final.txt $query.pre.txt $query.txt $target.halflength.coord.txt $target.halflength20minus.txt $target.halflength20add.txt  $target.halflength.txt circRNA.list.txt $target.fai $target.txt $query.fai
