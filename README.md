@@ -9,13 +9,15 @@ The linear target sequence is just required to create the backsplice target sequ
 $1= Linear target fasta sequence
 
 # Detection of circRNA through DRS
-Run the script nano_circ.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat first untar it.
+Run the script nano_circ.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat and csvtk first untar it and execute in bin.
 
 `sh nano_circ.sh $1 $2`
 
 $1= target backsplice fasta library of 100bp (which comes from backsplice.sh command).
 
 $2= query fasta read.
+
+The main output file of this script is $overlap.mismatch.gap.psl and $count.txt file.
 
 # calculation of Precision and Recall
 Run the script precision_recall.sh to know the precision and recall of the pipeline we did for circBase circRNA. So its better to check in circBase.
