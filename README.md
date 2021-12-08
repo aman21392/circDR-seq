@@ -32,14 +32,20 @@ $3= Query fasta read
 In this folder there is query file i.e. test_read.fa file which is the simulated file which get from running the NanoSim pipeline. The another file i.e. the circBase_3000_linear_sequence.fa which is used to generate the backsplice library. 
 
 # Generate the simulated read
-  You can find complete pipeline for nanosim on there github page. https://github.com/bcgsc/NanoSim . For generation of circRNA simulated reads first we have to convert the target linear fasta file into backsplice fasta file and then used genome mode in the NanoSim for genration of simulated reads. In the `-i` option we have to give the nanopore fasta file. There is a paper "Nanopore sequencing of brain-derived full-length circRNAs reveals circRNA-specific exon usage, intron retention and microexons"(ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR132/005/SRR13225505/SRR13225505_1.fastq.gz).
-  Conversion of fastq to fasta file command:
-  `seqtk seq -A input.fastq >output.fa` 
+You can find complete pipeline for nanosim on their github page. https://github.com/bcgsc/NanoSim . For generation of circRNA simulated reads first we have to convert the target linear fasta file into backsplice fasta file and then use genome mode in the NanoSim for generation of simulated reads. In the `-i` option we have to give the nanopore fasta file. The dataset from the paper "Nanopore sequencing of brain-derived full-length circRNAs reveals circRNA-specific exon usage, intron retention and microexons" is used in the example below.
+
+`wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR132/005/SRR13225505/SRR13225505_1.fastq.gz`
+
+`gunzip SRR13225505_1.fastq.gz`
+
+Conversion of fastq to fasta file command:
+
+`seqtk seq -A SRR13225505_1.fastq > SRR13225505.fa` 
 
 So 1st step is Characterization stage in genome mode:
 
-/home/aclab/apps/NanoSim/src/read_analysis.py genome -i Input read for training -rg backsplice.fa -o ./backsplice
+/home/aclab/apps/NanoSim/src/read_analysis.py genome -i SRR13225505.fa -rg backsplice.fa -o ./backsplice_out
 
 So 2nd step is Simulation stage in genome mode:
 
-/home/aclab/apps/NanoSim/src/simulator.py genome -rg ./test_data/backsplice.fa -c ./backsplice -n -o ./backsplice_simulate
+/home/aclab/apps/NanoSim/src/simulator.py genome -rg backsplice.fa -c ./backsplice_out -n 12000000 -o ./backsplice_simulate
