@@ -1,4 +1,7 @@
 #!/bin/bash
+# written by Aman Kumar Singh
+# First written on 1st December 2021
+
 query=$2
 target=$1
 echo "query: "$query
