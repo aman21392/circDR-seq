@@ -1,4 +1,7 @@
 #!/bin/bash
+# written by Aman Kumar Singh
+# First written on 1st December 2021
+
 output=$1
 target=$2
 query=$3
