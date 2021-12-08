@@ -44,8 +44,8 @@ Conversion of fastq to fasta file command:
 
 So 1st step is Characterization stage in genome mode:
 
-/home/aclab/apps/NanoSim/src/read_analysis.py genome -i SRR13225505.fa -rg backsplice.fa -o ./backsplice_out
+`/home/aclab/apps/NanoSim/src/read_analysis.py genome -i SRR13225505.fa -rg backsplice.fa -o ./backsplice_out`
 
 So 2nd step is Simulation stage in genome mode:
 
-/home/aclab/apps/NanoSim/src/simulator.py genome -rg backsplice.fa -c ./backsplice_out -n 12000000 -o ./backsplice_simulate
+`/home/aclab/apps/NanoSim/src/simulator.py genome -rg backsplice.fa -c ./backsplice_out -n 12000000 -o ./backsplice_simulate`
