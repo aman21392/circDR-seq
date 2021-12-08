@@ -15,12 +15,12 @@ $1= target backsplice fasta library of 100bp (which comes from backsplice.sh com
 
 $2= Query fasta read.
 
-The main output file of this script is $query.overlap.mismatch.gap.psl and $query.count.txt file.
+The main output file of this script is final.psl and $query.count.txt file.
 
 # calculation of Precision and Recall
 Run the script precision_recall.sh to know the precision and recall of the pipeline we did for circBase circRNA. So its better to check in circBase.
 
-`sh precision_recall.sh $query.overlap.mismatch.gap.psl ./test_data/backsplice.fa ./test_data/test_read.fa`
+`sh precision_recall.sh final.psl ./test_data/backsplice.fa ./test_data/test_read.fa`
 
 $1=output of nano_circ.sh script (i.e. $query.overlap.mismatch.gap.psl)
 
