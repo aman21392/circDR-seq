@@ -15,8 +15,14 @@ cat $query.overlap.psl |awk '$2/($1+$2)<0.1{print $0}' >$query.overlap.mismatch.
 ############### use of awk command to remove those sequences which have >20 gaps in qury and >10 gaps in target sequences for removal of false positive #####################
 awk '$6<20 && $8<20' $query.overlap.mismatch.psl > $query.overlap.mismatch.gap.psl
 
+#####################extract unique reads ##################################
+awk '{print $10}' $query.overlap.mismatch.gap.psl|sort |uniq -c |awk '$1<=1{print $2}' >read.txt
+ 
+######################### make a final file from those unique reads ###################################
+grep -f read.txt $query.overlap.mismatch.gap.psl >final.psl
+
 ################### extract the target column and know about the count of circRNA #####################################
-awk '{print $14}' $query.overlap.mismatch.gap.psl |sed 's/|/\t/g' | awk '{print $1}' |sort |uniq -c >$query.count.txt
+awk '{print $14}'  final.psl|sed 's/|/\t/g' | awk '{print $1}' |sort |uniq -c >$query.count.txt
 
 ################# Delete Temp files ########################
-rm $query.psl $query.overlap.psl $query.overlap.mismatch.psl
+rm $query.psl $query.overlap.psl $query.overlap.mismatch.psl read.txt $query.overlap.mismatch.gap.psl
