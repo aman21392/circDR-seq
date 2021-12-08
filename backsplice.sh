@@ -1,4 +1,6 @@
 #!/bin/bash
+# written by Aman Kumar Singh
+# First written on 1st December 2021
 
 ################## convert of linear fasta sequence into backsplice fasta sequence #################################
 target=$1
