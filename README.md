@@ -33,9 +33,12 @@ So after run the nano_circ.sh pipeline the output of count file utilized for mak
 
 `sh databasecircRNA.sh $1 $2 $3 $4`
 
-$1=output file of circBAse library (
+$1=output file of circBAse library
+
 $2=circBase bed file containg coordinates, gene name, circBase id 
-$3=output file of circatlas library (
+
+$3=output file of circatlas library 
+
 $4=circatlas bed file containg coordinates, gene name, circatlas id
 
 # calculation of Precision and Recall
