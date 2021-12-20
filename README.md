@@ -7,7 +7,7 @@ The linear target sequence is just required to create the backsplice target sequ
 `sh backsplice.sh ./test_data/circBase_3000_linear_sequence.fa`
 
 # Exonic circRNA library
-For detecting the novel circRNA, first create the all possible combination of exons library in a gene. So for making exonic library we need transcript id file; and a file which contain transcript id, exon no.,exon id, coordinates;genome.fa file and the function_code.js file which present in the exonic circRNA library file.
+For detecting the novel circRNA, first, create the all possible combination of exons library in a gene. So for making an exonic library, we need a transcript id file; and a file that contains transcript id, exon no., exon id, coordinates; genome.fa file and the function_code.js file which present in the exonic circRNA library file.
 
 `bash exonic_forward_gene.sh $1 $2 $3 $4`
 
@@ -20,6 +20,8 @@ $2= transcript id file
 $3= genome fasta file
 
 $4= function_code.js (present in script file)
+
+cat 
 
 # Detection of circRNA through DRS
 Run the script nano_circ.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat and csvtk first untar it and make a executable.
