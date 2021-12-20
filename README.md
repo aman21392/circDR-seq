@@ -27,6 +27,15 @@ $2= Query fasta read.
 
 The main output file of this script is final.psl and $query.count.txt file.
 
+# circRNA list preparation
+So after run the nano_circ.sh pipeline the output of count file utilized for making the list of circRNA with count and coordinates. 3scripts are there to form a complete list of circRNA:
+1st script is to make a list of circRNA from the circBase and circatlas libary:
+`sh databasecircRNA.sh $1 $2 $3 $4`
+$1=output file of circBAse library (
+$2=circBase bed file containg coordinates, gene name, circBase id 
+$3=output file of circatlas library (
+$4=circatlas bed file containg coordinates, gene name, circatlas id
+
 # calculation of Precision and Recall
 Run the script precision_recall.sh to know the precision and recall of the pipeline we did for circBase circRNA. So its better to check in circBase.
 
