@@ -46,6 +46,20 @@ $3=output file of circatlas library
 
 $4=circatlas bed file containg coordinates, gene name, circatlas id
 
+2nd script is to make a list of circRNA from the exonic library:
+
+`sh 20exon.coord.sh $1 $2 $3 $4 $5`
+
+$1=
+
+$2=
+
+$3=
+
+$4=
+
+$5=
+
 # calculation of Precision and Recall
 Run the script precision_recall.sh to know the precision and recall of the pipeline we did for circBase circRNA. So its better to check in circBase.
 
