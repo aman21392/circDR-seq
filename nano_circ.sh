@@ -22,10 +22,10 @@ awk '$6<20 && $8<20' $query.overlap.mismatch.psl > $query.overlap.mismatch.gap.p
 awk '{print $10}' $query.overlap.mismatch.gap.psl|sort |uniq -c |awk '$1<=1{print $2}' >read.txt
  
 ######################### make a final file from those unique reads ###################################
-grep -f read.txt $query.overlap.mismatch.gap.psl >final.psl
+grep -f read.txt $query.overlap.mismatch.gap.psl >output.psl
 
 ################### extract the target column and know about the count of circRNA #####################################
-awk '{print $14}'  final.psl|sed 's/|/\t/g' | awk '{print $1}' |sort |uniq -c >$query.count.txt
+awk '{print $14}'  output.psl|sed 's/|/\t/g' | awk '{print $1}' |sort |uniq -c >$query.count.txt
 
 ################# Delete Temp files ########################
 rm $query.psl $query.overlap.psl $query.overlap.mismatch.psl read.txt $query.overlap.mismatch.gap.psl
