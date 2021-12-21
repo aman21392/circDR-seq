@@ -76,9 +76,9 @@ $5= database file(circBase and circatlas)
 # calculation of Precision and Recall
 Run the script precision_recall.sh to know the precision and recall of the pipeline we did for circBase circRNA. So its better to check in circBase.
 
-`sh precision_recall.sh final.psl backsplice.fa ./test_data/test_read.fa`
+`sh precision_recall.sh output.psl backsplice.fa ./test_data/test_read.fa`
 
-$1=output of nano_circ.sh script (i.e. $query.overlap.mismatch.gap.psl)
+$1=output of nano_circ.sh script (i.e. output.psl)
 
 $2= full backsplice fasta sequence (comes from the backsplice.sh script)
 
@@ -88,7 +88,7 @@ $3= Query fasta read
 In this folder there is query file i.e. test_read.fa file which is the simulated file which get from running the NanoSim pipeline. The another file i.e. the circBase_3000_linear_sequence.fa which is used to generate the backsplice library. 
 
 # Generate the simulated read
-You can find complete pipeline for nanosim on their github page. https://github.com/bcgsc/NanoSim . For generation of circRNA simulated reads first we have to convert the target linear fasta file into backsplice fasta file and then use genome mode in the NanoSim for generation of simulated reads. In the `-i` option we have to give the nanopore fasta file. The dataset from the paper "Nanopore sequencing of brain-derived full-length circRNAs reveals circRNA-specific exon usage, intron retention and microexons" is used in the example below.
+You can find complete pipeline for nanosim on their github page (https://github.com/bcgsc/NanoSim). For generation of circRNA simulated reads first we have to convert the target linear fasta file into backsplice fasta file and then use genome mode in the NanoSim for generation of simulated reads. In the `-i` option we have to give the nanopore fasta file. The dataset from the paper "Nanopore sequencing of brain-derived full-length circRNAs reveals circRNA-specific exon usage, intron retention and microexons" is used in the example below.
 
 `wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR132/005/SRR13225505/SRR13225505_1.fastq.gz`
 
