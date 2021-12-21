@@ -13,11 +13,11 @@ For detecting the novel circRNA, first, create the all possible combination of e
 
 `bash exonic_reverse_gene.sh $1 $2 $3 $4`
 
-$1= bed file containg coordinates,transcript id,exon id,exon no.
+$1= bed file containg coordinates,transcript id,exon id,exon no. (forward gene bed file/reverse gene bed file)
 
-$2= transcript id file
+$2= transcript id file (forward/reverse transcript id file)
 
-$3= genome fasta file
+$3= genome fasta file (hg 38 human genome file)
 
 $4= function_code.js (present in script file)
 
@@ -52,15 +52,15 @@ $4=circatlas bed file containg coordinates, gene name, circatlas id
 
 `sh 20exon.coord.sh $1 $2 $3 $4 $5`
 
-$1=
+$1= output file of exonic library (from nanocirc.sh (*.psl))
 
-$2=
+$2= forward gene transcript id file
 
-$3=
+$3= reverse gene transcript id file
 
-$4=
+$4= transcript id and gene name file
 
-$5=
+$5= database file(circBase and circatlas)
 
 # calculation of Precision and Recall
 Run the script precision_recall.sh to know the precision and recall of the pipeline we did for circBase circRNA. So its better to check in circBase.
