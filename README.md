@@ -8,7 +8,7 @@ pblat
 
 csvtk
 
-bbmap:- dedupe.sh 
+bbmap:- dedupe.sh (its use only in making exon library)
 
 These all software are executable to path.
 
