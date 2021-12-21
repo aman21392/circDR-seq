@@ -1,6 +1,17 @@
 # nano_circ
 nano_circ is a pipeline to detect circRNA from naopore Direct RNA sequencing. It uses backsplice target fasta sequence to detect the circRNA in the nanopore data.
 
+# Required Software
+Bedtools
+
+pblat
+
+csvtk
+
+bbmap:- dedupe.sh 
+
+These all software are executable to path.
+
 # Create backsplice target library
 The linear target sequence is just required to create the backsplice target sequence with the help of script backsplice.sh. 
 
