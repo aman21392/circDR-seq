@@ -1,5 +1,5 @@
 #!/bin/bash
-target=$1 #######(forward_less_20.txt)###########
+target=$1 #######(forward_gene.txt)###########
 query=$2  #######(transcript.txt)################
 genome=$3 #######(genome.fa)#####################
 code=$4
