@@ -10,7 +10,7 @@ csvtk (https://github.com/shenwei356/csvtk)
 
 bbmap:- dedupe.sh (its use only in making exon library)(https://sourceforge.net/projects/bbmap/)
 
-These all software are executable to path.
+These all software are executable to path. Other version of softwares might also work.
 
 # Create backsplice target library
 The linear target sequence is just required to create the backsplice target sequence with the help of script backsplice.sh. 
@@ -19,6 +19,7 @@ The linear target sequence is just required to create the backsplice target sequ
 
 # Exonic circRNA library
 For detecting the novel circRNA, first, create the all possible combination of exons library in a gene. So for making an exonic library, we need a transcript id file; and a file that contains transcript id, exon no., exon id, coordinates; genome.fa file and the function_code.js file which presents in the exonic circRNA library file.
+This script gives the 100bp exonic circRNA library.
 
 `bash exonic_forward_gene.sh $1 $2 $3 $4`
 
@@ -33,6 +34,8 @@ $3= genome fasta file (hg 38 human genome file)
 $4= function_code.js (present in script file)
 
 cat uniq.forward.exon.fa uniq.reverse.exon.fa >20exon.circRNA.library.fa (uniq.forward.exon.fa= output of exonic_forward_gene.sh), (uniq.reverse.exon.fa= output of exonic_reverse_gene.sh )
+
+20exon.circRNA.library.fa is the final fasta file of exonic backsplice library. 
 
 # Detection of circRNA through DRS
 Run the script nano_circ.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat and csvtk first untar it and make a executable.
@@ -73,6 +76,15 @@ $4= transcript id and gene name file
 
 $5= database file(circBase and circatlas)
 
+3rd script is to compile the result of databasecircRNA.sh and 20exon.coord.sh script 
+
+`sh circRNA.list.sh $1 $2`
+$1= output of databasecircRNA.sh
+
+$2= output of 20exon.coord.sh
+
+Then the final output of this script is complete.list.circRNA.txt.
+
 # calculation of Precision and Recall
 Run the script precision_recall.sh to know the precision and recall of the pipeline we did for circBase circRNA. So its better to check in circBase.
 
@@ -85,7 +97,7 @@ $2= full backsplice fasta sequence (comes from the backsplice.sh script)
 $3= Query fasta read
 
 # Test data
-In this folder there is query file i.e. test_read.fa file which is the simulated file which get from running the NanoSim pipeline. The another file i.e. the circBase_3000_linear_sequence.fa which is used to generate the backsplice library. 
+In this folder there is query file i.e. test_read.fa file which is the simulated file which get from running the NanoSim pipeline. The another file i.e. the circBase_3000_linear_sequence.fa which is used to generate the backsplice library. circBase_3000_linear_sequence.fa
 
 # Generate the simulated read
 You can find complete pipeline for nanosim on their github page (https://github.com/bcgsc/NanoSim). For generation of circRNA simulated reads first we have to convert the target linear fasta file into backsplice fasta file and then use genome mode in the NanoSim for generation of simulated reads. In the `-i` option we have to give the nanopore fasta file. The dataset from the paper "Nanopore sequencing of brain-derived full-length circRNAs reveals circRNA-specific exon usage, intron retention and microexons" is used in the example below.
