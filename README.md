@@ -79,6 +79,7 @@ $5= database file(circBase and circatlas)
 3rd script is to compile the result of databasecircRNA.sh and 20exon.coord.sh script 
 
 `sh circRNA.list.sh $1 $2`
+
 $1= output of databasecircRNA.sh
 
 $2= output of 20exon.coord.sh
