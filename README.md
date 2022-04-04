@@ -49,7 +49,7 @@ $2= Query fasta read.
 The main output file of this script is final.psl and $query.count.txt file.
 
 # circRNA list preparation
-So after run the nano_circ.sh pipeline the output of count file utilized for making the list of circRNA with count and coordinates. 3scripts are there to form a complete list of circRNA:
+So after run the nano_circ.sh pipeline the output of count file utilized for making the list of circRNA with count and coordinates. 3 scripts are there to form a complete list of circRNA:
 1st script is to make a list of circRNA from the circBase and circatlas libary:
 
 `sh databasecircRNA.sh $1 $2 $3 $4`
@@ -72,7 +72,7 @@ $2= forward gene transcript id file
 
 $3= reverse gene transcript id file
 
-$4= transcript id and gene name file
+$4= transcript id and gene name file (1st column is transcript id , 2nd column is gene name )
 
 $5= database file(circBase and circatlas)
 
