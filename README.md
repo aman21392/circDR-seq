@@ -1,5 +1,5 @@
-# nano_circ
-nano_circ is a pipeline to detect circRNA from naopore Direct RNA sequencing. It uses backsplice target fasta sequence to search the circRNA in the nanopore data.
+# circDR-seq
+circDR-seq is a pipeline to detect circRNA from naopore Direct RNA sequencing. It uses backsplice target fasta sequence to search the circRNA in the nanopore data.
 
 # Required Software
 Bedtools ( v2.27.1)
@@ -40,7 +40,7 @@ cat uniq.forward.exon.fa uniq.reverse.exon.fa >20exon.circRNA.library.fa (uniq.f
 # Detection of circRNA through DRS
 Run the script nano_circ.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat and csvtk first untar it and make a executable.
 
-`sh nano_circ.sh backsplice.100bp.fa ./test_data/test_read.fa`
+`sh circDR-seq.sh backsplice.100bp.fa ./test_data/test_read.fa`
 
 $1= target backsplice fasta library of 100bp (which comes from backsplice.sh command).
 
@@ -49,7 +49,7 @@ $2= Query fasta read.
 The main output file of this script is final.psl and $query.count.txt file.
 
 # circRNA list preparation
-So after run the nano_circ.sh pipeline the output of count file utilized for making the list of circRNA with count and coordinates. 3 scripts are there to form a complete list of circRNA:
+So after run the circDR-seq.sh pipeline the output of count file utilized for making the list of circRNA with count and coordinates. 3 scripts are there to form a complete list of circRNA:
 1st script is to make a list of circRNA from the circBase and circatlas libary:
 
 `sh databasecircRNA.sh $1 $2 $3 $4`
@@ -91,7 +91,7 @@ Run the script precision_recall.sh to know the precision and recall of the pipel
 
 `sh precision_recall.sh output.psl backsplice.fa ./test_data/test_read.fa`
 
-$1=output of nano_circ.sh script (i.e. output.psl)
+$1=output of circDR-seq.sh script (i.e. output.psl)
 
 $2= full backsplice fasta sequence (comes from the backsplice.sh script)
 
