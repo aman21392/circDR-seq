@@ -15,7 +15,7 @@ awk '$16<=30 && $17>=70' $query.psl >$query.overlap.psl
 ############### use of awk command to remove those sequences which have >0.1 mismatches in the alignment ##############################
 cat $query.overlap.psl |awk '$2/($1+$2)<0.1{print $0}' >$query.overlap.mismatch.psl
 
-############### use of awk command to remove those sequences which have >20 gaps in qury and >20 gaps in target sequences for removal of false positive #####################
+############### use of awk command to remove those sequences which have >20 gaps in query and >20 gaps in target sequences for removal of false positive #####################
 awk '$6<20 && $8<20' $query.overlap.mismatch.psl > $query.overlap.mismatch.gap.psl
 
 ############################## use awk to sum the 19th column and make new file ##################################
