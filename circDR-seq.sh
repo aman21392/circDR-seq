@@ -24,7 +24,7 @@ awk '{print $19}' $query.overlap.mismatch.gap.psl |awk -F , '{ sum = 0; for(i=1;
 ############################# paste the block.psl file into the gap.psl file to make the 22 column psl file #####################################
 paste $query.overlap.mismatch.gap.psl $query.overlap.mismatch.gap.block.psl >$query.overlap.mismatch.gap.block.list.psl
 
-############################ use awk to remove reads on the basis od 22nd column ##########################################
+############################ use awk to remove reads on the basis of 22nd column ##########################################
 awk 'NR==FNR{ max[$10]=(max[$10]>$NF? max[$10]:$NF); next }max[$10]==$NF' $query.overlap.mismatch.gap.block.list.psl $query.overlap.mismatch.gap.block.list.psl >$query.overlap.mismatch.gap.block.list.list.psl
 
 #####################extract unique reads ##################################
