@@ -74,7 +74,7 @@ $3= reverse gene transcript id file
 
 $4= transcript id and gene name file (1st column is transcript id , 2nd column is gene name )
 
-$5= database file(circBase and circatlas)(6 column file: 1st 3 are coordinate, 4th are gene name, 5th are circBase id and 6th are circAtlas id)
+$5= database file(circBase and circatlas)(6 column file: 1st 3 are coordinate, 4th gene name, 5th circBase id and 6th circAtlas id)
 
 3rd script is to compile the result of databasecircRNA.sh and 20exon.coord.sh script 
 
