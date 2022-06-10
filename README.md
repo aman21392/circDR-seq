@@ -38,7 +38,7 @@ cat uniq.forward.exon.fa uniq.reverse.exon.fa >20exon.circRNA.library.fa (uniq.f
 20exon.circRNA.library.fa is the final fasta file of exonic backsplice library. 
 
 # Detection of circRNA through DRS
-Run the script nano_circ.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat and csvtk first untar it and make a executable.
+Run the script circDR-seq.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat and csvtk first untar it and make a executable.
 
 `sh circDR-seq.sh backsplice.100bp.fa ./test_data/test_read.fa`
 
