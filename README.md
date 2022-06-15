@@ -13,7 +13,7 @@ bbmap:- dedupe.sh (its use only in making exon library)(https://sourceforge.net/
 These all software are executable to path. Other version of softwares might also work.
 
 # Create backsplice target library
-The linear target sequence is just required to create the backsplice target sequence with the help of script backsplice.sh. 
+The linear target sequence is required to create the backsplice target sequence with the help of script backsplice.sh. 
 
 `sh backsplice.sh ./test_data/circBase_3000_linear_sequence.fa`
 
