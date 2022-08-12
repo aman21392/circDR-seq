@@ -46,7 +46,7 @@ Run the script circDR-seq.sh to detect the circRNA in Nanopore data. First, nano
 
 `sh circDR-seq.sh $1 ./test_data/$2`
 
-$1= Provide query as fasta file or use backsplice.100bp.fa for test run. Which should be obtained from backsplice.sh command.
+$1= Provide target as backsplice fasta file or use backsplice.100bp.fa for test run. Which should be obtained from backsplice.sh command.
 
 $2= Provide query as fasta file or use test_read.fa for test run.
 
