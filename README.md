@@ -1,50 +1,54 @@
 # circDR-seq
-circDR-seq is a pipeline to detect circRNA from naopore Direct RNA sequencing. It uses backsplice target fasta sequence to search the circRNA in the nanopore data.
+circDR-seq is a pipeline to detect circRNA from nanopore Direct RNA sequencing. It uses backsplice target fasta sequence to search the circRNA in the nanopore data.
 
-# Required Software
+# Required Softwares
 Bedtools ( v2.27.1)
 
 pblat (http://icebert.github.io/pblat, http://icebert.github.io/pblat-cluster)
 
 csvtk (https://github.com/shenwei356/csvtk)
 
-bbmap:- dedupe.sh (its use only in making exon library)(https://sourceforge.net/projects/bbmap/)
+bbmap:- dedupe.sh (it is used in making virtual exonic library)(https://sourceforge.net/projects/bbmap/)
 
 These all software are executable to path. Other version of softwares might also work.
 
-# Create backsplice target library
+# To generate backsplice junction library using Database. (eg. circBase and circAtlas were used in this study)
 The linear target sequence is required to create the backsplice target sequence with the help of script backsplice.sh. 
 
 `sh backsplice.sh ./test_data/circBase_3000_linear_sequence.fa`
 
-# Exonic circRNA library
+# Virtual Exonic circRNA library
 For detecting the novel circRNA, first, create the all possible combination of exons library in a gene. So for making an exonic library, we need a transcript id file; and a file that contains transcript id, exon no., exon id, coordinates; genome.fa file and the function_code.js file which presents in the exonic circRNA library file.
-This script gives the 100bp exonic circRNA library.
+This script gives the 100bp virtual exonic circRNA library.
+
+Genes on forward strand of the chromosomes
 
 `bash exonic_forward_gene.sh $1 $2 $3 $4`
 
+Genes on reverse strand of the chromosomes
+
 `bash exonic_reverse_gene.sh $1 $2 $3 $4`
 
-$1= bed file containg coordinates,transcript id,exon id,exon no. (forward gene bed file/reverse gene bed file)
+$1= bed file containing coordinates,transcript id,exon id,exon no. in the given order (forward gene bed file/reverse gene bed file)
 
-$2= transcript id file (forward/reverse transcript id file)
+$2= Ensembl transcript id file in text or bed format. (forward/reverse transcript id file)
 
 $3= genome fasta file (hg 38 human genome file)
 
-$4= function_code.js (present in script file)
+$4= function_code.js (Provided in the script file)
 
-cat uniq.forward.exon.fa uniq.reverse.exon.fa >20exon.circRNA.library.fa (uniq.forward.exon.fa= output of exonic_forward_gene.sh), (uniq.reverse.exon.fa= output of exonic_reverse_gene.sh )
+cat uniq.forward.exon.fa uniq.reverse.exon.fa >exon.circRNA.library.fa (uniq.forward.exon.fa= output of exonic_forward_gene.sh), (uniq.reverse.exon.fa= output of exonic_reverse_gene.sh )
 
-20exon.circRNA.library.fa is the final fasta file of exonic backsplice library. 
+exon.circRNA.library.fa is the final fasta file of virtual exonic backsplice library. 
 
 # Detection of circRNA through DRS
-Run the script circDR-seq.sh to detect the circRNA in Nanopore data. First, convert the nanopore data from fastq to fasta file. To use the pblat and csvtk first untar it and make a executable.
+Run the script circDR-seq.sh to detect the circRNA in Nanopore data. First, nanopore data needs to be converted from fastq to fasta file. To use the `pblat` and `csvtk`.
 
-`sh circDR-seq.sh backsplice.100bp.fa ./test_data/test_read.fa`
+`sh circDR-seq.sh $1 ./test_data/$2`
 
-$1= target backsplice fasta library of 100bp (which comes from backsplice.sh command).
+$1= Provide query as fasta file or use backsplice.100bp.fa for test run. Which should be obtained from backsplice.sh command.
 
-$2= Query fasta read.
+$2= Provide query as fasta file or use test_read.fa for test run.
 
 The main output file of this script is output.psl and $query.count.txt file.
 
