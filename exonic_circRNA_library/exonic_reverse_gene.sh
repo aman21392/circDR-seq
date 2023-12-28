@@ -29,7 +29,7 @@ rm script_"$transcript".js
 done
 
 cat reverse.exon.fa |paste -d $'\t' - - | sort -t $'\t' -uk1,1 | awk 'BEGIN{FS="\t";OFS="\n"}{print $1,$2}' >uniq.header.reverse.exon.fa
-/home/aclab/bbmap/dedupe.sh in=uniq.header.reverse.exon.fa out=uniq.seq.reverse.exon.fa
+/bbmap/dedupe.sh in=uniq.header.reverse.exon.fa out=uniq.seq.reverse.exon.fa
 awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' uniq.seq.reverse.exon.fa |tr "\t" "\n" >uniq.reverse.exon.fa
 
 rm reverse.exon.fa uniq.header.reverse.exon.fa uniq.seq.reverse.exon.fa
