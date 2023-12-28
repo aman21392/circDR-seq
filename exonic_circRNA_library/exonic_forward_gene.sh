@@ -29,7 +29,7 @@ rm script_"$transcript".js
 done
 
 cat forward.exon.fa |paste -d $'\t' - - | sort -t $'\t' -uk1,1 | awk 'BEGIN{FS="\t";OFS="\n"}{print $1,$2}' >uniq.header.forward.exon.fa
-/home/aclab/bbmap/dedupe.sh in=uniq.header.forward.exon.fa out=uniq.seq.forward.exon.fa
+/bbmap/dedupe.sh in=uniq.header.forward.exon.fa out=uniq.seq.forward.exon.fa
 awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' uniq.seq.forward.exon.fa |tr "\t" "\n" >uniq.forward.exon.fa
 
 rm uniq.header.forward.exon.fa uniq.seq.forward.exon.fa forward.exon.fa
